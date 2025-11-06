@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>I'm Sorry  💛</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-1: #16161a;
+      --bg-2: #1f1f2e;
+      --accent: #ff72b6;
+      --accent-2: #7bdff2;
+      --text: #f8f9fb;
+      --muted: #c9cad1;
+      --card: rgba(255,255,255,0.08);
+      --glass: rgba(255,255,255,0.15);
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      height: 100%;
+    }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: linear-gradient(120deg, #151623, #221733, #1a1f3a, #2a1534);
+      background-size: 300% 300%;
+      animation: bgShift 18s ease-in-out infinite;
+      overflow-x: hidden;
+    }
+    @keyframes bgShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .wrap {
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 460px;
+      background: linear-gradient(165deg, var(--card), rgba(255,255,255,0.06));
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .ribbon {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(80% 50% at 20% -10%, rgba(255,114,182,0.25), transparent 60%),
+                  radial-gradient(70% 60% at 110% 30%, rgba(123,223,242,0.25), transparent 60%);
+      filter: blur(18px);
+      z-index: 0;
+    }
+
+    header {
+      padding: 28px 24px 10px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .heart {
+      width: 18px; height: 18px;
+      transform: translateZ(0);
+      animation: beat 1.1s infinite ease-in-out;
+    }
+    @keyframes beat {
+      0%, 100% { transform: scale(1) }
+      10% { transform: scale(1.08) }
+      20% { transform: scale(0.98) }
+      30% { transform: scale(1.12) }
+      40% { transform: scale(1) }
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(22px, 4.8vw, 30px);
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .name {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(28px, 7vw, 42px);
+      color: var(--accent);
+      text-shadow: 0 6px 20px rgba(255,114,182,0.35);
+      margin-top: 2px;
+    }
+
+    .media {
+      position: relative;
+      z-index: 2;
+      padding: 0 18px;
+    }
+
+    .spotify {
+      border: 0;
+      width: 100%;
+      height: 152px;
+      border-radius: 16px;
+      filter: drop-shadow(0 12px 20px rgba(0,0,0,0.35));
+    }
+
+    .msg {
+      position: relative;
+      z-index: 2;
+      padding: 16px 22px 4px;
+    }
+
+    .paper {
+      background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.08));
+      border: 1px dashed rgba(255,255,255,0.25);
+      border-radius: 16px;
+      padding: 18px 18px 14px;
+      line-height: 1.6;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .paper strong { color: var(--text); }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 18px 22px 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .btn {
+      appearance: none;
+      border: 0;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-weight: 600;
+      color: var(--text);
+      background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.08));
+      box-shadow: 0 10px 20px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(255,255,255,0.12);
+      cursor: pointer;
+      transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
+      backdrop-filter: blur(6px);
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); filter: brightness(0.95); }
+
+    .btn.primary {
+      background: linear-gradient(135deg, rgba(255,114,182,0.9), rgba(123,223,242,0.9));
+      color: #101014;
+      box-shadow: 0 16px 24px rgba(255,114,182,0.25), 0 10px 22px rgba(123,223,242,0.20);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      padding-bottom: 22px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Floating hearts */
+    .floaters { position: absolute; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+    .floater {
+      position: absolute;
+      bottom: -40px;
+      font-size: 16px;
+      opacity: 0.9;
+      animation: rise linear forwards;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.35));
+    }
+    @keyframes rise {
+      from { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.9; }
+      to { transform: translateY(-120vh) translateX(var(--drift)) rotate(360deg); opacity: 0; }
+    }
+
+    /* Typewriter effect for a single line */
+    .typewriter {
+      overflow: hidden;
+      border-right: .12em solid rgba(255,255,255,0.55);
+      white-space: nowrap;
+      animation: typing 4s steps(40, end), blink .85s step-end infinite;
+      width: 0; /* will be set by JS to content width */
+    }
+    @keyframes typing { from { width: 0 } to { width: var(--tw-width, 100%) } }
+    @keyframes blink { 50% { border-color: transparent } }
+
+    /* Mobile tweaks */
+    @media (max-width: 420px) {
+      .actions { grid-template-columns: 1fr; }
+      .spotify { height: 172px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" id="card">
+      <div class="ribbon"></div>
+      <div class="floaters" id="floaters" aria-hidden="true"></div>
+
+      <header>
+        <div class="title">
+          <svg class="heart" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.1 21.35l-1.1-1.02C5.14 14.92 2 12.07 2 8.5 2 6 4 4 6.5 4c1.74 0 3.41.81 4.5 2.09C12.09 4.81 13.76 4 15.5 4 18 4 20 6 20 8.5c0 3.57-3.14 6.42-8.9 11.83l-1 1.02z"/></svg>
+          <h1>I'm really sorry</h1>
+        </div>
+        <div class="name" id="herName">Vanshitha ji </div>
+      </header>
+
+      <div class="media">
+        <!-- ✅ Replace the src below with your chosen Spotify embed URL -->
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5NdVbWjNxxzv3SMxtINLu2?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+
+      <section class="msg">
+        <div class="paper">
+          <p id="typed" class="typewriter">I hate that I hurt you. You matter to me more than my pride, more than being right — I just want to make it right with you.</p>
+          <p style="margin: 10px 0 0; font-size: 13px; color: var(--muted)">Tap <strong>Open Message</strong> for a little note from my heart. 💛</p>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button class="btn primary" id="openMsg">Open Message</button>
+        <button class="btn" id="hugBtn">Send a Hug 🤗</button>
+      </div>
+
+      <footer>
+        
+      </footer>
+    </div>
+  </div>
+
+  <template id="note-template">
+    <div style="margin-top:8px">
+      <p style="margin:0 0 10px">Dear <span data-name>you</span>,</p>
+      <p style="margin:0 0 10px">I messed up, and I'm truly sorry. If I could rewind time, I'd choose your smile over my ego every single time.</p>
+      <p style="margin:0 0 10px">Please let me make it up to you — coffee, a walk, or just a call. I'm here, listening, and ready to fix this.</p>
+      <p style="margin:0; font-weight:600">— Always, <span data-me>me</span></p>
+    </div>
+  </template>
+
+  <script>
+    // --------- Quick personalisation ---------
+    const YOUR_NAME = "Aniketh";           // ← your name
+    const HER_NAME  = "Vanshitha";         // ← her name
+
+    // Optional: pass ?name=HerName&song=EMBED_URL in the URL to override quickly
+    const params = new URLSearchParams(location.search);
+    const qName = params.get('name');
+    const qSong = params.get('song');
+
+    // Apply name
+    const nameEl = document.getElementById('herName');
+    const finalName = qName || HER_NAME;
+    nameEl.textContent = finalName;
+
+    // Apply song if provided
+    const spotify = document.getElementById('spotify');
+    if (qSong) {
+      spotify.src = qSong;
+    }
+
+    // Set typewriter width to the content width after paint
+    const typed = document.getElementById('typed');
+    requestAnimationFrame(() => {
+      const w = typed.scrollWidth + 2;
+      typed.style.setProperty('--tw-width', w + 'px');
+      typed.style.width = w + 'px';
+    });
+
+    // --------- Open Message logic ---------
+    const openBtn = document.getElementById('openMsg');
+    openBtn.addEventListener('click', () => {
+      const paper = document.querySelector('.paper');
+      if (!document.getElementById('extra-note')) {
+        const tpl = document.getElementById('note-template');
+        const frag = tpl.content.cloneNode(true);
+        const div = document.createElement('div');
+        div.id = 'extra-note';
+        div.appendChild(frag);
+        const you = div.querySelector('[data-name]');
+        const me  = div.querySelector('[data-me]');
+        if (you) you.textContent = finalName;
+        if (me)  me.textContent = YOUR_NAME;
+        paper.appendChild(div);
+        openBtn.textContent = 'Read Again 💌';
+        sprinkleHearts(14);
+      } else {
+        // Scroll back to the note
+        document.getElementById('extra-note').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        sprinkleHearts(8);
+      }
+    });
+
+    // --------- Hug (floating hearts) ---------
+    const hugBtn = document.getElementById('hugBtn');
+    const floaters = document.getElementById('floaters');
+
+    hugBtn.addEventListener('click', () => {
+      sprinkleHearts(18);
+      jiggle('#card');
+    });
+
+    function sprinkleHearts(count = 12) {
+      const emojis = ['💗','💜','💙','💛','💖','🩷','💘','🦋'];
+      for (let i = 0; i < count; i++) {
+        const s = document.createElement('div');
+        s.className = 'floater';
+        s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        s.style.left = Math.random() * 100 + 'vw';
+        s.style.fontSize = (12 + Math.random() * 20) + 'px';
+        s.style.setProperty('--drift', (Math.random() * 60 - 30) + 'vw');
+        s.style.animationDuration = (6 + Math.random() * 4) + 's';
+        floaters.appendChild(s);
+        setTimeout(() => s.remove(), 11000);
+      }
+    }
+
+    function jiggle(sel) {
+      const el = document.querySelector(sel);
+      el.animate([
+        { transform: 'translateY(0) rotate(0)' },
+        { transform: 'translateY(-2px) rotate(-0.4deg)' },
+        { transform: 'translateY(0) rotate(0.4deg)' },
+        { transform: 'translateY(0) rotate(0)' }
+      ], { duration: 420, iterations: 2, easing: 'ease-in-out' });
+    }
+
+    // Accessibility: space/enter activate focused buttons
+    document.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('keyup', e => {
+        if (e.key === 'Enter' || e.key === ' ') btn.click();
+      });
+    });
+  </script>
+</body>
+</html>
